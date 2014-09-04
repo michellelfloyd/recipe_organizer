@@ -15,6 +15,7 @@ class Migration(SchemaMigration):
             ('categories', self.gf('django.db.models.fields.CharField')(max_length=50)),
             ('description', self.gf('django.db.models.fields.TextField')()),
             ('instructions', self.gf('django.db.models.fields.TextField')()),
+            ('photo', self.gf('django.db.models.fields.CharField')(max_length=200, null=True, blank=True)),
         ))
         db.send_create_signal(u'public', ['Recipe'])
 
@@ -59,7 +60,8 @@ class Migration(SchemaMigration):
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'ingredients': ('django.db.models.fields.related.ManyToManyField', [], {'to': u"orm['public.Ingredient']", 'symmetrical': 'False'}),
             'instructions': ('django.db.models.fields.TextField', [], {}),
-            'name': ('django.db.models.fields.CharField', [], {'max_length': '100', 'null': 'True', 'blank': 'True'})
+            'name': ('django.db.models.fields.CharField', [], {'max_length': '100', 'null': 'True', 'blank': 'True'}),
+            'photo': ('django.db.models.fields.CharField', [], {'max_length': '200', 'null': 'True', 'blank': 'True'})
         }
     }
 
