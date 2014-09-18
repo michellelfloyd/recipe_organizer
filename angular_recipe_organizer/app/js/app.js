@@ -14,6 +14,7 @@ angular.module('myApp', [
     ]).
     config(['$routeProvider', 'RestangularProvider', function ($routeProvider, RestangularProvider) {
         $routeProvider
+
             .when('/recipes', {
                 templateUrl: 'partials/recipes.html',
                 controller: 'RecipeCtrl',
@@ -24,6 +25,16 @@ angular.module('myApp', [
                 templateUrl: 'partials/add-recipe.html',
                 controller: 'AddRecipeCtrl',
                 title: 'Add a Recipe'
+            })
+            .when('/recipe-details/:id', {
+                templateUrl: 'partials/recipe-details.html',
+                controller: 'RecipeDetailCtrl',
+                title: 'View Recipe Details'
+            })
+            .when('/edit-recipe/:recipeId',{
+                templateUrl: 'partials/edit-recipe.html',
+                controller: 'EditRecipeCtrl',
+                title: 'Edit Recipe'
             })
 
             .otherwise({

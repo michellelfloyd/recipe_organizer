@@ -1,0 +1,53 @@
+<div class="page-container">
+    <div class="container-fluid">
+        <div class="page-bg img-rounded">
+            <div class="container-fluid">
+                <div class="row text-center">
+
+                    <label>Recipe Photo(url)</label>
+                    <input class="form-control" type="text" ng-model="recipe.photo">
+
+                    <label>Recipe Name</label>
+                    <input class="form-control" type="text" ng-model="recipe.name">
+
+                    <!--<label>Ingredients</label>
+                    <textarea
+                            type="text"
+                            ng-model="recipe.ingredients"
+                            placeholder="Enter the recipe ingredients here"
+                            class="form-control"
+                            rows="5">
+                    </textarea>-->
+
+                    <label>Description</label>
+                    <textarea
+                            type="text"
+                            ng-model="recipe.description"
+                            placeholder="Enter the recipe description here"
+                            class="form-control"
+                            rows="5">
+                    </textarea>
+
+                    <label>Instructions</label>
+                    <textarea
+                            type="text"
+                            ng-model="recipe.instructions"
+                            placeholder="Enter the recipe instructions here"
+                            class="form-control"
+                            rows="5">
+                    </textarea>
+
+                    <label>Category</label>
+                    <input class="form-control" type="text" ng-model="recipe.category">
+
+
+                        <button class="btn btn-sm btn-success ingredient-buttons" ng-click="updateRecipe()">
+                            Save Changes</button>
+                        <button class="btn btn-sm btn-danger ingredient-buttons" ng-click="deleteRecipe()">
+                            Delete Recipe</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,14 +1,67 @@
-<div class="container">
-    <div ng-repeat="recipe in recipes">
+<!-- Page Content -->
 
-        <h1>{{ recipe.name }}</h1>
 
-        <img src="{{ recipe.photo }}" width="350px">
+<div class="container img-rounded back" >
 
-        <p>{{ recipe.description }}</p>
-        <ul>
-            <li ng-repeat="ingredient in recipe.ingredients">{{ ingredient.name }}</li>
-        </ul>
-        <p>{{ recipe.instructions }}</p>
+    <!-- Jumbotron Header -->
+   <header class="jumbotron hero-spacer all">
+
+        <h1>Family Recipes</h1>
+
+        <p>A collection of wonderful recipes enjoyed by our family
+            </p>
+        <div ng-options="filter:searchTerm">
+
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <input type="text" ng-model="searchTerm" class="form-control" placeholder="Search Recipes">
+                <p></p>
+        <!--<p><a class="btn btn-primary btn-large">Call to action!</a>
+        </p>-->
+            </div>
+        </div>
+    </header>
+
+    <!--<hr>-->
+
+    <!-- Title -->
+    <!--<div class="row">
+        <div class="col-lg-12">
+            <h3>Latest Features</h3>
+        </div>
+    </div>-->
+    <!-- /.row -->
+
+    <!-- Page Features -->
+    <div class="row text-center">
+
+        <div ng-repeat="recipe in recipes | filter:searchTerm" class="col-md-3 col-sm-6 hero-feature">
+            <div class="thumbnail card bord">
+                <h4>{{ recipe.name }}</h4>
+                <img src="{{ recipe.photo }}"class="pic">
+
+                <div class="caption card-description">
+
+
+                    <p>{{ recipe.description }}</p>
+
+                    <p>
+                        <a href="#/recipe-details/{{ recipe.id }}">
+                            <button class="btn btn-xs btn-primary">Make It!</button></a>
+                        <a href="#/edit-recipe/{{ recipe.id }}">
+                            <button class="btn btn-xs btn-info edit-button">Edit</button></a>
+                    </p>
+
+                </div>
+            </div>
+        </div>
+
     </div>
+    <!-- /.row -->
+
+    <!--<hr>-->
+
+
 </div>
+
