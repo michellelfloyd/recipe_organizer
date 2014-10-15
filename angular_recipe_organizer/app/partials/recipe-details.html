@@ -6,9 +6,12 @@
 
                     <h1>{{ recipe.name }}</h1>
 
-                    <img class="img-rounded" ng-src="{{ recipe.photo }}">
 
-                    <div class="row text-left col-lg-6">
+                    <div class="col-lg-6">
+                        <img class="img-rounded photo" ng-src="{{ recipe.photo }}">
+                    </div>
+
+                    <div class="row col-lg-5 col-lg-offset-1 text-left">
                         <h3>Ingredients:</h3>
                         <ul>
 
@@ -18,17 +21,10 @@
 
                         <p>{{ recipe.instructions }}</p>
 
+                        <strong>Recipe Category:{{ recipe.categories }}</strong>
 
                     </div>
-                    <button class="btn btn-warning" ng-click="editing=true" ng-hide="editing">
-                        Edit Name
-                    </button>
-                    <button class="btn btn-default" ng-click="saveRecipe()" ng-show="editing">
-                        Save Recipe
-                    </button>
-                    <button class="btn btn-danger" ng-click="deleteRecipe()" ng-show="editing">
-                        Delete Recipe
-                    </button>
+
                 </div>
             </div>
         </div>

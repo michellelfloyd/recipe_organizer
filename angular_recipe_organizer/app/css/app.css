@@ -106,11 +106,16 @@ body {
 }
 
 .photo{
-    max-height: 200px;
-    max-width: 200px;
+    max-height: 400px;
+    max-width: 400px;
     display: block;
 }
 
+.wide{
+    width: 200px;
+}
 
-
-
+.center {
+    margin:0 auto;
+    text-align:left;
+}

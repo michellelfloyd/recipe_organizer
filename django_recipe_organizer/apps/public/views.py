@@ -15,6 +15,7 @@ class RecipeDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = RecipeSerializer
     queryset = Recipe.objects.all()
 
+
 class EditRecipe(generics.RetrieveUpdateDestroyAPIView):
     model = Recipe
     serializer_class = RecipeSerializer

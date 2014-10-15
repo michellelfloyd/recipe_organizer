@@ -41,6 +41,6 @@ angular.module('myApp', [
                 redirectTo: '/recipes'
             });
 
-        RestangularProvider.setBaseUrl('http://localhost:8001');
+        RestangularProvider.setBaseUrl('http://localhost:8004');
     }]);
 
