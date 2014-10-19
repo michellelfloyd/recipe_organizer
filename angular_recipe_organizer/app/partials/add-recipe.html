@@ -12,22 +12,28 @@
                     <input ng-model="recipe.name"
                            class="form-control" placeholder="Recipe Name">
                 </div>
+                <div class="form-group col-lg-6">
+                    <label>Description</label>
+                    <input ng-model="recipe.description"
+                           class="form-control" placeholder="Recipe Description">
+                </div>
 
                 <div class="form-group col-lg-6" ng-class="{'has-error':(createNewIngredient && newIngredient.$error)}">
                     <label>Ingredients</label>
-                    <input type="text" ng-model="searchTerm" class="form-control" placeholder="Recipe Ingredients">
+                    <p>Select Ingredients</p>
+
                     <select size="5" multiple ng-model="recipe.ingredients"
-                            ng-options="ingredient.id as ingredient.name for ingredient in ingredients | orderBy:'name' | filter:searchTerm"
-                            ng-hide="createNewIngredient || searchTerm.length < 1" class="form-control">
+                            ng-options="ingredient.id as ingredient.name for ingredient in ingredients"
+                            ng-hide="createNewIngredient" class="form-control">
 
                     </select>
                     <button class="btn btn-default ingredient-buttons" ng-click="addIngredient()"
                             ng-hide="createNewIngredient">
                         Add Ingredient Not In List
-                        <!--<span class="glyphicon glyphicon-plus"></span>-->
+
                     </button>
                     <ol>
-                        <li ng-repeat="ingredient in recipe.ingredients">{{ ingredient.name }}</li>
+                        <!--<li ng-repeat="ingredient in recipe.ingredients">{{ ingredient.name }}</li>-->
                     </ol>
                     <input type="text" ng-model="newIngredient.name" class="form-control" ng-show="createNewIngredient">
 
@@ -36,17 +42,12 @@
                         <button class="btn btn-danger" ng-click="cancelIngredient()">Cancel</button>
             <span ng-show="newIngredient.$error" class="alert alert-danger" role="alert">
                 Ingredient already exists</span>
-                        <input type="text" ng-model="searchTerm">
+                        <!--<input type="text">-->
                     </div>
                     <!--<input ng-model="recipe.ingredients.name"
                        class="form-control">-->
                 </div>
 
-                <div class="form-group col-lg-6">
-                    <label>Description</label>
-                    <input ng-model="recipe.description"
-                           class="form-control" placeholder="Recipe Description">
-                </div>
 
                 <div class="form-group col-lg-6">
                     <label>Instructions</label>

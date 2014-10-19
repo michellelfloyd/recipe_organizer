@@ -10,14 +10,12 @@
                     <label>Recipe Name</label>
                     <input class="form-control" type="text" ng-model="recipe.name">
 
-                    <!--<label>Ingredients</label>
-                    <textarea
-                            type="text"
-                            ng-model="recipe.ingredients"
-                            placeholder="Enter the recipe ingredients here"
-                            class="form-control"
-                            rows="5">
-                    </textarea>-->
+                    <label>Ingredients</label>
+                    <select size="5" multiple ng-model="recipe.ingredients"
+                            ng-options="ingredient.id as ingredient.name for ingredient in ingredients"
+                            class="form-control">
+
+                    </select>
 
                     <label>Description</label>
                     <textarea

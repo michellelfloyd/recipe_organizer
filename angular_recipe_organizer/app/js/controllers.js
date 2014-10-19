@@ -23,7 +23,7 @@ angular.module('myApp.controllers', [])
             //Ensure no duplicate entries
 
             if (ingredientExists(name)) {
-                $scope.newIngredient.$error = true
+                $scope.newIngredient.$error = true;
                 return;
             }
             $scope.createNewIngredient = false;
@@ -92,7 +92,16 @@ angular.module('myApp.controllers', [])
         $scope.recipeId = $routeParams.recipeId;
 
         Restangular.one('recipes', $scope.recipeId).customGET().then(function (data) {
+            data.ingredient_ids = [];
+            for (var i=0; i<data.ingredients.length; i++){
+                data.ingredient_ids.push(data.ingredients[i].id);
+            }
+            data.ingredients = data.ingredient_ids;
             $scope.recipe = data;
+
+        });
+        Restangular.all('ingredients').getList().then(function (ingredients) {
+            $scope.ingredients = ingredients;
         });
 
         $scope.updateRecipe = function () {
