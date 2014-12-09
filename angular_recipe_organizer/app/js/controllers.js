@@ -6,7 +6,7 @@ angular.module('myApp.controllers', [])
     .controller('RecipeCtrl', ['$scope', 'Restangular', function ($scope, Restangular) {
 
         // GET a list of all recipes
-        Restangular.all('recipes').getList().then(function (recipes) {
+        Restangular.all('recipes/‘).getList().then(function (recipes) {
             $scope.recipes = recipes;
         })
     }])
@@ -50,7 +50,7 @@ angular.module('myApp.controllers', [])
             return false;
         };
 
-        Restangular.all('ingredients').getList().then(function (ingredients) {
+        Restangular.all('ingredients/‘).getList().then(function (ingredients) {
             $scope.ingredients = ingredients;
         });
 
@@ -76,7 +76,7 @@ angular.module('myApp.controllers', [])
         $scope.editing = false;
         var recipeId = $routeParams.id;
         // GET a list of all recipes
-        Restangular.one('recipes', recipeId).get().then(function (recipe) {
+        Restangular.one('recipes/‘, recipeId).get().then(function (recipe) {
             $scope.recipe = recipe;
         });
         $scope.saveRecipe = function () {
@@ -91,7 +91,7 @@ angular.module('myApp.controllers', [])
     .controller('EditRecipeCtrl', function ($scope, Restangular, $routeParams, $location) {
         $scope.recipeId = $routeParams.recipeId;
 
-        Restangular.one('recipes', $scope.recipeId).customGET().then(function (data) {
+        Restangular.one('recipes/‘, $scope.recipeId).customGET().then(function (data) {
 //            data.ingredient_ids = [];
 //            for (var i=0; i<data.ingredients.length; i++){
 //                data.ingredient_ids.push(data.ingredients[i].id);
@@ -100,12 +100,12 @@ angular.module('myApp.controllers', [])
             $scope.recipe = data;
 
         });
-//        Restangular.all('ingredients').getList().then(function (ingredients) {
+//        Restangular.all('ingredients/‘).getList().then(function (ingredients) {
 //            $scope.ingredients = ingredients;
 //        });
 
         $scope.updateRecipe = function () {
-            Restangular.one('recipes', $scope.recipeId).customPUT($scope.recipe).then(function (data) {
+            Restangular.one('recipes/‘, $scope.recipeId).customPUT($scope.recipe).then(function (data) {
                     $scope.status = "The recipe was successfully edited!";
                     $scope.recipe = data;
                     $location.path('/recipes');
@@ -117,7 +117,7 @@ angular.module('myApp.controllers', [])
 
         $scope.deleteRecipe = function() {
             if (confirm("Are you sure you want to delete this recipe?")) {
-                Restangular.one('recipes', $scope.recipeId).customDELETE().then(function (data) {
+                Restangular.one('recipes/‘, $scope.recipeId).customDELETE().then(function (data) {
                     $location.path('/recipes');
                 }, function() {
                     $scope.status = "The recipe couldn't be deleted";

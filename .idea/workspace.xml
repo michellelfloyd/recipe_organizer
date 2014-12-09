@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ad09cca3-d220-47df-bb0b-0d56c582503d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/angular_recipe_organizer/app/js/controllers.js" afterPath="$PROJECT_DIR$/angular_recipe_organizer/app/js/controllers.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/django_recipe_organizer/apps/public/serializers.py" afterPath="$PROJECT_DIR$/django_recipe_organizer/apps/public/serializers.py" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gitignore" afterPath="" />
     </list>
     <ignored path="recipe_organizer.iws" />
     <ignored path=".idea/workspace.xml" />
