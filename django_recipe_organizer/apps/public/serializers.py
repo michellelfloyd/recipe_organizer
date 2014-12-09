@@ -16,6 +16,9 @@ class IngredientSerializer(serializers.ModelSerializer):
         model = Ingredient
 
 
+class RecipeCreateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Recipe
 # class GrocerySerializer(serializers.ModelSerializer):
 #     class Meta:
 #         model = Grocery
